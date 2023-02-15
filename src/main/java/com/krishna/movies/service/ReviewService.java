@@ -1,6 +1,8 @@
-package com.krishna.movies;
+package com.krishna.movies.service;
 
-import org.bson.types.ObjectId;
+import com.krishna.movies.repository.ReviewRepository;
+import com.krishna.movies.entity.Movie;
+import com.krishna.movies.entity.Review;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -14,7 +16,7 @@ public class ReviewService {
 
     @Autowired
     private ReviewRepository reviewRepository;
-    public Review createReview(String reviewBody,String imdbId){
+    public Review createReview(String reviewBody, String imdbId){
         Review review = reviewRepository.insert(new Review(reviewBody));
 
         mongoTemplate.update(Movie.class)

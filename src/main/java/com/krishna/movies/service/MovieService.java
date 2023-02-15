@@ -1,6 +1,7 @@
-package com.krishna.movies;
+package com.krishna.movies.service;
 
-import org.bson.types.ObjectId;
+import com.krishna.movies.repository.MovieRepository;
+import com.krishna.movies.entity.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

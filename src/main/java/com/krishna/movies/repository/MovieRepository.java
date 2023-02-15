@@ -1,5 +1,6 @@
-package com.krishna.movies;
+package com.krishna.movies.repository;
 
+import com.krishna.movies.entity.Movie;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;

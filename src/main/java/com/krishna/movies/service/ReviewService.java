@@ -16,8 +16,8 @@ public class ReviewService {
 
     @Autowired
     private ReviewRepository reviewRepository;
-    public Review createReview(String reviewBody, String imdbId){
-        Review review = reviewRepository.insert(new Review(reviewBody));
+    public Review createReview(String  reviewBody, int rating, String imdbId){
+        Review review = reviewRepository.insert(new Review(reviewBody, rating));
 
         mongoTemplate.update(Movie.class)
                 .matching(Criteria.where("imdbId").is(imdbId))
@@ -25,6 +25,14 @@ public class ReviewService {
                 .first();
 
         return review;
+//        Review reviewg = reviewRepository.insert(review);
+//
+//        mongoTemplate.update(Movie.class)
+//                .matching(Criteria.where("imdbId").is(imdbId))
+//                .apply(new Update().push("reviewIds").value(review))
+//                .first();
+//
+//        return review;
 
     }
 }
